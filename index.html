@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5f1e6;
+            font-family:Titillium Web;
+            font-optical-sizing: auto;
+            font-size: normal;
+            font-size: 20px;
+
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            &:hover {
+                text-decoration: underline;
+                
+            }
+
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            ul {
+                align-items: center;
+                display: flex;
+                list-style-type: none;
+                gap: 5px;
+                li{
+                    display:inline-block;
+                    a{
+                        display: inline-block;
+                        padding: 10px 20px;
+                    }
+                }
+                .logo2{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 34px;
+                    margin-right: 20px;
+                }
+            }
+        }
+        header{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            justify-content: space-between;
+            display: flex;
+            max-width: 1669px;
+            margin: auto;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+
+            .logo_holder{ 
+                display: flex;
+                padding: 10px;
+                align-items: center;
+                font-weight: 700;
+
+
+                .logo{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 54px;
+                    margin-right: 20px;
+                    
+
+
+                }
+                .logo-text{
+                    flex: 1;
+                    
+
+                }
+                .mobile_toggle{
+                display: none;
+                color:var(--base-800);
+                padding: 10px;
+                
+                @media (max-width:768px){
+                    display:inline-block;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+                
+            }
+
+            }
+        }
+        header, nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo, .logo2, nav ul li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            gap: 5px;
+        }
+
+        .mobile_toggle {
+            display: none;
+        }
+        @media (max-width: 1080px) {
+            header, nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        @media (max-width: 768px) {
+            header, nav {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+
+            .mobile_toggle {
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            nav ul{
+                display: none;
+                &.active{
+                    display: flex;
+                }
+            }
+        }
+        .container{
+            max-width: 1669px;
+            margin: auto;
+            gap: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: lightgray;
+            transition: ease 0.3s all;
+            &.hover {
+                text-decoration: none;
+            }
+        }
+        .button:hover {
+            text-decoration: none;
+            background-color: white;
+        }
+
+        h1{
+            font-size: 45px;
+            line-height: 1;
+            margin-bottom: 10px;
+            @media (max-width: 1080px) {
+                font-size: 35px;
+                line-height: 1;
+                margin-bottom: 10px;
+                min-width: 769;
+            }
+            @media (max-width: 768px) {
+                font-size: 25px;
+                line-height: 1;
+                margin-bottom: 10px;
+                
+            }
+           
+        }
+        p{
+            font-size: 40px;
+            margin-bottom: 10px;
+            min-width: 1079;
+            @media (max-width: 1080px) {
+                font-size: 30px;
+                margin-bottom: 10px;
+                min-width: 769;
+            }
+            @media (max-width: 768px) {
+                font-size: 20px;
+                margin-bottom: 10px;
+                
+            }
+
+            
+        }
+        .home{
+            display: flex;
+            .text1{
+                flex:1;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                .action{
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                    a{
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                    }
+                }
+                
+
+            }
+            .picture1{
+                flex: 1;
+                padding: 0px 30px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                
+                
+
+                @media (max-width:768px) {
+                    
+                    display: flex;
+                    flex-direction: column;
+                    
+                }
+            } 
+        }
+        
+        section{
+            padding-top: 5rem;
+            
+        }
+        .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        }
+        .about-left {
+        width: 45%;
+        position: relative;
+        }
+
+        .about-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .about-right {
+        width: 45%;
+        }
+
+        .about-right h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-align: center;
+        }
+
+        .edu-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        }
+
+        .edu-box img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+        }
+
+        .edu-box p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 0;
+        }
+
+        .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+        .social a {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #333;
+        }
+
+        .social img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        }
+
+        .action {
+        display: flex;
+        justify-content: center;
+        }
+
+        .button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
+
+        .button:hover {
+        background-color: #555;
+        }
+
+        @media  (max-width: 1669px) {
+        .about-left,
+        .about-right {
+            width: 45%;
+        }
+        }
+        .about-left {
+        width: 45%;
+        position: relative;
+                }
+
+        .about-left img {
+        width: 100%;
+        height: auto;
+        }
+
+        @media  (max-width: 1080px) {
+        .about-left img {
+            width: 80%;
+        }
+        }
+
+        .about-right {
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+        .about-left img {
+            height: 300px;
+        }
+
+        .edu-box p {
+            font-size: 1rem;
+        }
+        }
+        @media (max-width:1080px){
+
+        }
+        
+        #PORTFOLIO {
+        padding: 40px;
+        
+        }
+
+            .heading {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            }
+
+            .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            }
+
+            .portfolio-item {
+            margin: 20px;
+            width: calc(33.33% - 40px);
+            }
+
+            .portfolio-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 10px;
+            }
+
+            .action {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+                .button {
+                background-color: lightgray;
+                color: black;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                }
+            }
+
+            
+
+            .button:hover {
+            background-color: #f5f8f5;
+            }
+
+            @media (max-width: 1669px) {
+            .button {
+                padding: 10px 20px;
+            }
+            }
+
+            @media (max-width: 1080px) {
+            .button {
+                padding: 8px 15px;
+            }
+            }
+
+            @media (max-width: 768px) {
+            .portfolio-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .portfolio-item {
+                width: 100%;
+                margin: 20px 0;
+            }
+            }
+
+        
+        .contact_me {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact_me h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin: 20px;
+        }
+        .icon:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+        .contact_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact_form input, .contact_form textarea {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .button {
+            background-color:lightgray;
+            color: black;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .button:hover {
+            background-color: white;
+        }
+        @media (max-width: 1080px) {
+        .contact_me {
+            max-width: 600px;
+            padding: 30px;
+            margin: 0 auto;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin: 15px;
+            }
+        .contact_form input, .contact_form textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            }   
+        .icons {
+            justify-content: center;
+        }
+        .contact_form {
+            align-items: center;
+        }
+        }
+
+        @media (max-width: 768px) {
+        .contact_me {
+            max-width: 400px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+        }
+        .contact_form input,.contact_form textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .icons {
+            justify-content: center;
+        }
+        .contact_form {
+            align-items: center;
+        }
+        }
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            background-color: #F3D0D7;
+            border-top: 1px solid #ddd;
+            font-size: 16px;
+            color: #666;
+            }
+
+            @media (min-width: 1669px) {
+            .copyright {
+                font-size: 18px;
+                padding: 25px;
+            }
+            }
+            @media (min-width: 1080px) and (max-width: 1669px) {
+            .copyright {
+                font-size: 16px;
+                padding: 20px;
+            }
+            }
+
+            @media (max-width: 1080px) {
+            .copyright {
+                font-size: 14px;
+                padding: 15px;
+            }
+            }
+
+            @media (max-width: 768px) {
+            .copyright {
+                font-size: 12px;
+                padding: 10px;
+            }
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo_holder">
+            <img class="logo" src="pic1.png">
+            <div class="logo-text">MAICA</div>
+        </a>
+        <nav>
+            <ul id="menu">
+                <li>
+                    <a href="#HOME">HOME</a>
+                </li>
+                <li>
+                    <a href="#ABOUT">ABOUT</a>
+                </li>
+                <li>
+                    <a href="#PORTFOLIO">PORTFOLIO</a>
+                </li>
+                <li>
+                    <a href="#CONTACT">CONTACT</a>
+                </li>
+                <img class="logo2" src="pic2.png">
+            </ul>
+            <a href="#" class="mobile_toggle" onclick="toggle_menu( );">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                  </svg>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="home container" id="HOME">
+            <div class="text1">
+                <p>Hi i'm...</p>
+                <h1>
+                    JAMAICA PALAS<br><small>a Web Developer</small>
+                </h1>
+                <p>
+                    a programmer who develops World Wide Web 
+                    applications using a client server model. 
+                    The applications typically use HTML, CSS, 
+                    and JavaScript in the client, and any general-purpose 
+                    programming language in the server.
+                </p>
+                <div class="action">
+                    <a href="Palas_Resume.pdf" class="button">
+                        DOWNLOAD CV
+                    </a>
+                    <a href="#CONTACT" class="button">
+                        CONTACT ME
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="picture1">
+                <img src="pic3.jpeg" alt="Jamaica Palas" height="650px" width="450px">
+            </div>
+
+        </section>
+    </main>
+    <section class="container about-container" id="ABOUT">
+        <div class="about-left">
+            <img src="pic4.jpg" alt="J. Palas" height="550px" width="450px">
+        </div>
+        <div class="about-right">
+            <h1>ABOUT ME...</h1>
+            
+            <div class="edu-box">
+                <img src="toga-icon.png" class="icon1" alt="">
+                <h2>EDUCATION</h2>
+                <p>B.S INFORMATION TECNOLOLOGY<br>2020-PRESENT</p>
+            </div>
+            
+            <div class="social">
+                <a href="https://m.me/maicapalas28"><img src="messenger.png" class="icon" >Maica Palas</a>
+                <a href="@palace_maica"><img src="ig.png" class="icon" alt="">palas_maica</a>
+                <a href="https://www.facebook.com/maicapalas28"><img src="fb.png" class="icon" alt="">Maica Palas</a>
+                <a href="maicapalace14@gmail.com"><img src="email.png" class="icon" alt="">maicapalace14@gmail.com</a>
+            </div>
+
+            <div class="action">
+                <a href="#PORTFOLIO" class="button">PORTFOLIO</a>
+                <a href="Palas_Resume.pdf" class="button" >DOWNLOAD CV</a>
+            </div>
+        </div>
+
+    </section>
+    <section id="PORTFOLIO" >
+        <h1 class="heading">My Portfolio</h1>
+        <div class="container portfolio-container">
+            <div class="portfolio">
+                <img src="resume.png" alt="RESUME" height="230" width="300px">
+                <div class="action">
+                    <a href="https://maica14.github.io/Online_Resume/" class="button">Live Demo</a>
+                    <a href="https://github.com/maica14/Online_Resume" class="button">Source Code</a>
+                </div>
+            </div>
+            <div class="portfolio">
+                <img src="rock-paper-scissors.png" alt="rock-paper-scissors" height="230" width="300px">
+                <div class="action">
+                    <a href="https://maica14.github.io/rock-paper-scissor/" class="button">Live Demo</a>
+                    <a href="https://github.com/maica14/rock-paper-scissor" class="button">Source Code</a>
+                </div>
+            </div>
+            <div class="portfolio">
+                <img src="calc.png" alt="CALCULATOR" height="230" width="300px">
+                <div class="action">
+                    <a href="https://maica14.github.io/Calculator-App/" class="button">Live Demo</a>
+                    <a href="https://github.com/maica14/Calculator-App" class="button">Source Code</a>
+                </div>
+            </div>
+        </div>
+        <section>
+           <div class="contact_me" id="CONTACT">
+                <h1>CONTACT ME</h1>
+                <div class="icons">
+                    <a href="https://m.me/maicapalas28"><img src="messenger.png" class="icon" ></a>
+                    <a href="@palace_maica"><img src="ig.png" class="icon" alt=""></a>
+                    <a href="https://www.facebook.com/maicapalas28"><img src="fb.png" class="icon" alt=""></a>
+                    <a href="maicapalace14@gmail.com"><img src="email.png" class="icon" alt=""></a>
+                </div>
+                <form class="contact_form">
+                    <input type="text" placeholder="Full Name">
+                    <input type="text" placeholder="Email address">
+                    <input type="text" placeholder="Message">
+                    <button type="submit" class="button">SUBMIT</button>
+                </form>
+           </div> 
+        </section>
+
+    </section>
+    <footer>
+        <div class="copyright">
+            Copyright &copy; 2023 | All Rights Reserved<br>
+            Developed by Jamaica Palas
+        </div>
+    </footer>
+    <script>
+        function toggle_menu(){
+        document.getElementById("menu").classList.toggle
+        ("active");
+            }
+
+        form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fullName = document.querySelector('#full_name').value;
+        const emailAddress = document.querySelector('#email_address').value;
+        const message = document.querySelector('#message').value;
+
+        console.log(`Full Name: ${fullName}, Email Address: ${emailAddress}, Message: ${message}`);
+        alert(`Thank you for contacting me!`);
+        });
+    </script>
+</body>
+</html>
